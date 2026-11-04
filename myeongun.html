@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>오늘의 명언 위젯</title>
+    <style>
+        body {
+            background: #fdf4ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Pretendard', sans-serif;
+        }
+        .quote-box {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 350px;
+            box-shadow: 0 8px 25px rgba(217, 70, 239, 0.1);
+            border-left: 5px solid #d946ef;
+            text-align: center;
+        }
+        #quote {
+            font-size: 1.05rem;
+            color: #4a044e;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        #author {
+            font-size: 0.85rem;
+            color: #a21caf;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quote-box">
+        <p id="quote">"로딩 중..."</p>
+        <span id="author">- </span>
+    </div>
+
+    <script>
+        const quotes = [
+            { quote: "완벽보다 일단 실행이 중요하다.", author: "바이브 코딩" },
+            { quote: "작은 일에 성실한 사람이 큰일에도 성실하다.", author: "속담" },
+            { quote: "오늘 흘린 땀방울은 내일의 포트폴리오가 된다.", author: "예비 개발자" },
+            { quote: "코딩은 눈으로 배우는 것이 아니라 손으로 치며 배우는 것이다.", author: "개발 명언" }
+        ];
+
+        // 랜덤하게 하나 선택
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        const selected = quotes[randomIndex];
+
+        document.getElementById("quote").innerText = `"${selected.quote}"`;
+        document.getElementById("author").innerText = `- ${selected.author} -`;
+    </script>
+</body>
+</html>
