@@ -17,12 +17,12 @@
 
 | 위젯 | 파일 | 설명 | 미리보기 |
 |------|------|------|---------|
-| ⏳ D-Day 카운트다운 | [`timerWidget.html`](./timerWidget.html) | 목표일까지 남은 일/시/분/초를 실시간 표시 | [열어보기](https://<아이디>.github.io/<저장소이름>/timerWidget.html) |
-| 🚀 기술 스택 카드 | [`interac_card.html`](./interac_card.html) | 마우스를 올리면 3D로 뒤집히는 카드 | [열어보기](https://<아이디>.github.io/<저장소이름>/interac_card.html) |
-| 💬 오늘의 명언 | [`myeongun.html`](./myeongun.html) | 새로고침할 때마다 명언이 랜덤으로 바뀜 | [열어보기](https://<아이디>.github.io/<저장소이름>/myeongun.html) |
+| ⏳ D-Day 카운트다운 | [`timerWidget.html`](./timerWidget.html) | 목표일까지 남은 일/시/분/초를 실시간 표시 | [열어보기](https://Dustin-08.github.io/26-2_UOU_UNICON_Mentor_Lecture_Hands-On/timerWidget.html) |
+| 🚀 기술 스택 카드 | [`interac_card.html`](./interac_card.html) | 마우스를 올리면 3D로 뒤집히는 카드 | [열어보기](https://Dustin-08.github.io/26-2_UOU_UNICON_Mentor_Lecture_Hands-On/interac_card.html) |
+| 💬 오늘의 명언 | [`myeongun.html`](./myeongun.html) | 새로고침할 때마다 명언이 랜덤으로 바뀜 | [열어보기](https://Dustin-08.github.io/26-2_UOU_UNICON_Mentor_Lecture_Hands-On/myeongun.html) |
 | ⚡ 스킬 게이지 | [`progressbar.html`](./progressbar.html) | 로딩 시 게이지가 스르륵 차오르는 애니메이션 | [열어보기](https://<아이디>.github.io/<저장소이름>/progressbar.html) |
-| 📝 방명록 / 한줄 메모 | [`guest.html`](./guest.html) | 한줄 메모를 등록·삭제 (브라우저에 저장) | [열어보기](https://<아이디>.github.io/<저장소이름>/guest.html) |
-| 🔗 소셜 링크 | [`profile.html`](./profile.html) | GitHub·메일·LinkedIn·Instagram 버튼 모음 | [열어보기](https://<아이디>.github.io/<저장소이름>/profile.html) |
+| 📝 방명록 / 한줄 메모 | [`guest.html`](./guest.html) | 한줄 메모를 등록·삭제 (브라우저에 저장) | [열어보기](https://Dustin-08.github.io/26-2_UOU_UNICON_Mentor_Lecture_Hands-On/guest.html) |
+| 🔗 소셜 링크 | [`profile.html`](./profile.html) | GitHub·메일·LinkedIn·Instagram 버튼 모음 | [열어보기](https://Dustin-08.github.io/26-2_UOU_UNICON_Mentor_Lecture_Hands-On/profile.html) |
 
 ---
 
