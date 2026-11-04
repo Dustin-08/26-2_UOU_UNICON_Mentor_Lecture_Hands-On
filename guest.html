@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>미니 메모장 위젯</title>
+    <style>
+        body {
+            background: #fdf2f8;
+            font-family: 'Pretendard', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .memo-card {
+            width: 300px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(244, 63, 94, 0.08);
+            border: 1px solid #fecdd3;
+        }
+        h3 {
+            margin: 0 0 12px 0;
+            color: #e11d48;
+            font-size: 1rem;
+        }
+        .input-box {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #fda4af;
+            border-radius: 10px;
+            outline: none;
+            font-size: 0.85rem;
+        }
+        button {
+            background: #f43f5e;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+        button:hover {
+            background: #e11d48;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+        li {
+            background: #fff1f2;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: #881337;
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .del-btn {
+            color: #f43f5e;
+            cursor: pointer;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="memo-card">
+        <h3>💬 방명록 / 한줄 메모</h3>
+        <div class="input-box">
+            <input type="text" id="memoInput" placeholder="응원 한마디를 적어주세요!">
+            <button onclick="addMemo()">등록</button>
+        </div>
+        <ul id="memoList"></ul>
+    </div>
+
+    <script>
+        // 페이지 열릴 때 기존 메모 불러오기
+        document.addEventListener("DOMContentLoaded", loadMemos);
+
+        function addMemo() {
+            const input = document.getElementById("memoInput");
+            if (!input.value.trim()) return;
+
+            const memos = JSON.parse(localStorage.getItem("notion_memos") || "[]");
+            memos.push(input.value.trim());
+            localStorage.setItem("notion_memos", JSON.stringify(memos));
+
+            input.value = "";
+            loadMemos();
+        }
+
+        function deleteMemo(index) {
+            const memos = JSON.parse(localStorage.getItem("notion_memos") || "[]");
+            memos.splice(index, 1);
+            localStorage.setItem("notion_memos", JSON.stringify(memos));
+            loadMemos();
+        }
+
+        function loadMemos() {
+            const memoList = document.getElementById("memoList");
+            memoList.innerHTML = "";
+            const memos = JSON.parse(localStorage.getItem("notion_memos") || "[]");
+
+            memos.forEach((text, index) => {
+                const li = document.createElement("li");
+                li.innerHTML = `<span>${text}</span> <span class="del-btn" onclick="deleteMemo(${index})">✕</span>`;
+                memoList.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
