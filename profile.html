@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>소셜 링크 위젯</title>
+    <style>
+        body {
+            background: #fafafa;
+            font-family: 'Pretendard', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .link-container {
+            display: flex;
+            gap: 16px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #f1f5f9;
+        }
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 16px;
+            background: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.4rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid #e2e8f0;
+        }
+        .social-btn:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2);
+            background: #6366f1;
+            color: white;
+            border-color: #6366f1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="link-container">
+        <a href="https://github.com" target="_blank" class="social-btn" title="GitHub">💻</a>
+        <a href="mailto:example@gmail.com" class="social-btn" title="Email">✉️</a>
+        <a href="https://linkedin.com" target="_blank" class="social-btn" title="LinkedIn">💼</a>
+        <a href="https://instagram.com" target="_blank" class="social-btn" title="Instagram">📸</a>
+    </div>
+
+</body>
+</html>
