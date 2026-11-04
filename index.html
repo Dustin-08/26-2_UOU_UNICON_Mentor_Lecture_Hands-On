@@ -1,219 +1,200 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2775.2">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-    span.s2 {font: 12.0px 'Apple SD Gothic Neo'; font-kerning: none}
-    span.s3 {font: 12.0px 'Apple Color Emoji'; font-kerning: none}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나만의 웹 위젯 랩 🧩</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Pretendard', -apple-system, 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #faf5ff 0%, #fdf2f8 100%);
+            color: #1e293b;
+            min-height: 100vh;
+        }
+        header {
+            text-align: center;
+            padding: 56px 20px 24px;
+        }
+        header h1 {
+            margin: 0 0 10px;
+            font-size: 2rem;
+            color: #6d28d9;
+        }
+        header p {
+            margin: 0;
+            color: #64748b;
+            line-height: 1.6;
+        }
+        .links {
+            margin-top: 18px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .links a {
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: #ffffff;
+            color: #7c3aed;
+            border: 1px solid #e9d5ff;
+            transition: all 0.2s;
+        }
+        .links a:hover {
+            background: #7c3aed;
+            color: #fff;
+        }
+        .grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 24px 20px 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 22px;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 8px 24px rgba(124, 58, 237, 0.07);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 32px rgba(124, 58, 237, 0.14);
+        }
+        .preview {
+            height: 220px;
+            background: #f8fafc;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .preview iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .info {
+            padding: 16px 18px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex: 1;
+        }
+        .info h2 {
+            margin: 0;
+            font-size: 1.05rem;
+        }
+        .info p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #64748b;
+            line-height: 1.5;
+            flex: 1;
+        }
+        .actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .actions a, .actions button {
+            flex: 1;
+            text-align: center;
+            text-decoration: none;
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 9px 0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .open-btn {
+            background: #7c3aed;
+            color: #fff;
+            border: 1px solid #7c3aed;
+        }
+        .open-btn:hover { background: #6d28d9; }
+        .copy-btn {
+            background: #fff;
+            color: #7c3aed;
+            border: 1px solid #e9d5ff;
+        }
+        .copy-btn:hover { background: #faf5ff; }
+        footer {
+            text-align: center;
+            padding: 0 20px 40px;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+    </style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="ko"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;</span><span class="s2">나만의</span><span class="s1"> </span><span class="s2">웹</span><span class="s1"> </span><span class="s2">위젯</span><span class="s1"> </span><span class="s2">랩</span><span class="s1"> </span><span class="s3">🧩</span><span class="s1">&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>* { box-sizing: border-box; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: 'Pretendard', -apple-system, 'Noto Sans KR', sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #faf5ff 0%, #fdf2f8 100%);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #1e293b;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>min-height: 100vh;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>header {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 56px 20px 24px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>header h1 {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0 0 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #6d28d9;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>header p {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #64748b;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>line-height: 1.6;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.links {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 18px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex-wrap: wrap;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.links a {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-decoration: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.85rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: 600;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 8px 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 999px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: #ffffff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #7c3aed;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: 1px solid #e9d5ff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: all 0.2s;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.links a:hover {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: #7c3aed;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #fff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.grid {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-width: 1000px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0 auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 24px 20px 60px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: grid;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 22px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.card {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: #ffffff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: 1px solid #f1f5f9;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-shadow: 0 8px 24px rgba(124, 58, 237, 0.07);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>overflow: hidden;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex-direction: column;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: transform 0.25s, box-shadow 0.25s;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.card:hover {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transform: translateY(-4px);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-shadow: 0 14px 32px rgba(124, 58, 237, 0.14);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.preview {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 220px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: #f8fafc;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid #f1f5f9;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.preview iframe {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.info {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 16px 18px 18px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex-direction: column;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 6px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex: 1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.info h2 {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1.05rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.info p {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.85rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #64748b;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>line-height: 1.5;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex: 1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.actions {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 8px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.actions a, .actions button {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex: 1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-decoration: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: inherit;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.8rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: 700;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 9px 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>cursor: pointer;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: all 0.2s;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.open-btn {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: #7c3aed;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #fff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: 1px solid #7c3aed;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.open-btn:hover { background: #6d28d9; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.copy-btn {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: #fff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #7c3aed;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: 1px solid #e9d5ff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.copy-btn:hover { background: #faf5ff; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>footer {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 0 20px 40px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.8rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #94a3b8;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;header&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h1&gt;</span><span class="s3">🧩</span><span class="s1"> </span><span class="s2">나만의</span><span class="s1"> </span><span class="s2">웹</span><span class="s1"> </span><span class="s2">위젯</span><span class="s1"> </span><span class="s2">랩</span><span class="s1">&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;AI</span><span class="s2">에게</span><span class="s1"> </span><span class="s2">말만</span><span class="s1"> </span><span class="s2">걸어서</span><span class="s1"> </span><span class="s2">만든</span><span class="s1"> </span><span class="s2">위젯</span><span class="s1"> </span><span class="s2">모음입니다</span><span class="s1">.&lt;br&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">           </span>&lt;b&gt;</span><span class="s2">주소</span><span class="s1"> </span><span class="s2">복사</span><span class="s1">&lt;/b&gt;</span><span class="s2">를</span><span class="s1"> </span><span class="s2">눌러</span><span class="s1"> </span><span class="s2">노션</span><span class="s1"> </span><span class="s2">페이지에</span><span class="s1"> &lt;code&gt;/embed&lt;/code&gt;</span><span class="s2">로</span><span class="s1"> </span><span class="s2">붙여넣어</span><span class="s1"> </span><span class="s2">보세요</span><span class="s1">!&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="links"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;a href="https://github.com/Dustin-08/26-2_UOU_UNICON_Mentor_Lecture_Hands-On" target="_blank"&gt;</span><span class="s3">📦</span><span class="s1"> GitHub </span><span class="s2">저장소</span><span class="s1">&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;a href="https://github.com/Dustin-08/26-2_UOU_UNICON_Mentor_Lecture_Hands-On/blob/main/PROMPTS.md" target="_blank"&gt;</span><span class="s3">🤖</span><span class="s1"> AI </span><span class="s2">프롬프트</span><span class="s1"> </span><span class="s2">가이드</span><span class="s1">&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;main class="grid" id="grid"&gt;&lt;/main&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;footer&gt;Made with AI </span><span class="s3">✨</span><span class="s1"> — </span><span class="s2">복사해서</span><span class="s1"> </span><span class="s2">자유롭게</span><span class="s1"> </span><span class="s2">수정해</span><span class="s1"> </span><span class="s2">쓰세요</span><span class="s1">&lt;/footer&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const widgets = [</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{ file: "timerWidget.html",<span class="Apple-converted-space">  </span>icon: "</span><span class="s3">⏳</span><span class="s1">", title: "D-Day </span><span class="s2">카운트다운</span><span class="s1">", desc: "</span><span class="s2">목표일까지</span><span class="s1"> </span><span class="s2">남은</span><span class="s1"> </span><span class="s2">일</span><span class="s1">·</span><span class="s2">시</span><span class="s1">·</span><span class="s2">분</span><span class="s1">·</span><span class="s2">초가</span><span class="s1"> </span><span class="s2">실시간으로</span><span class="s1"> </span><span class="s2">흘러가요</span><span class="s1">." },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{ file: "interac_card.html", icon: "</span><span class="s3">🚀</span><span class="s1">", title: "</span><span class="s2">기술</span><span class="s1"> </span><span class="s2">스택</span><span class="s1"> 3D </span><span class="s2">카드</span><span class="s1">", desc: "</span><span class="s2">마우스를</span><span class="s1"> </span><span class="s2">올리면</span><span class="s1"> </span><span class="s2">카드가</span><span class="s1"> </span><span class="s2">부드럽게</span><span class="s1"> </span><span class="s2">뒤집혀요</span><span class="s1">." },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{ file: "myeongun.html", <span class="Apple-converted-space">    </span>icon: "</span><span class="s3">💬</span><span class="s1">", title: "</span><span class="s2">오늘의</span><span class="s1"> </span><span class="s2">명언</span><span class="s1">", <span class="Apple-converted-space">      </span>desc: "</span><span class="s2">새로고침할</span><span class="s1"> </span><span class="s2">때마다</span><span class="s1"> </span><span class="s2">명언이</span><span class="s1"> </span><span class="s2">랜덤으로</span><span class="s1"> </span><span class="s2">바뀌어요</span><span class="s1">." },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{ file: "progressbar.html",<span class="Apple-converted-space">  </span>icon: "</span><span class="s3">⚡</span><span class="s1">", title: "</span><span class="s2">스킬</span><span class="s1"> </span><span class="s2">게이지</span><span class="s1">", <span class="Apple-converted-space">      </span>desc: "</span><span class="s2">로딩되면</span><span class="s1"> </span><span class="s2">게이지가</span><span class="s1"> </span><span class="s2">스르륵</span><span class="s1"> </span><span class="s2">차오르는</span><span class="s1"> </span><span class="s2">역량</span><span class="s1"> </span><span class="s2">바</span><span class="s1">." },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{ file: "guest.html",<span class="Apple-converted-space">        </span>icon: "</span><span class="s3">📝</span><span class="s1">", title: "</span><span class="s2">방명록</span><span class="s1"> / </span><span class="s2">한줄</span><span class="s1"> </span><span class="s2">메모</span><span class="s1">", desc: "</span><span class="s2">한줄</span><span class="s1"> </span><span class="s2">메모를</span><span class="s1"> </span><span class="s2">남기고</span><span class="s1"> </span><span class="s2">지울</span><span class="s1"> </span><span class="s2">수</span><span class="s1"> </span><span class="s2">있어요</span><span class="s1">. (</span><span class="s2">내</span><span class="s1"> </span><span class="s2">브라우저에</span><span class="s1"> </span><span class="s2">저장</span><span class="s1">)" },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{ file: "profile.html",<span class="Apple-converted-space">      </span>icon: "</span><span class="s3">🔗</span><span class="s1">", title: "</span><span class="s2">소셜</span><span class="s1"> </span><span class="s2">링크</span><span class="s1">", <span class="Apple-converted-space">        </span>desc: "GitHub·</span><span class="s2">메일</span><span class="s1">·LinkedIn·Instagram </span><span class="s2">버튼</span><span class="s1"> </span><span class="s2">모음</span><span class="s1">." }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>];</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const grid = document.getElementById("grid");</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>widgets.forEach(w =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const url = new URL(w.file, location.href).href;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const card = document.createElement("article");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>card.className = "card";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>card.innerHTML = `</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="preview"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;iframe src="${w.file}" title="${w.title}" loading="lazy"&gt;&lt;/iframe&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="info"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;h2&gt;${w.icon} ${w.title}&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;p&gt;${w.desc}&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="actions"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;a class="open-btn" href="${w.file}" target="_blank"&gt;</span><span class="s2">열어보기</span><span class="s1">&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;button class="copy-btn" type="button"&gt;</span><span class="s2">주소</span><span class="s1"> </span><span class="s2">복사</span><span class="s1">&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>`;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const btn = card.querySelector(".copy-btn");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>btn.addEventListener("click", async () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>try {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>await navigator.clipboard.writeText(url);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>btn.textContent = "</span><span class="s3">✅</span><span class="s1"> </span><span class="s2">복사됨</span><span class="s1">!";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} catch (e) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>prompt("</span><span class="s2">아래</span><span class="s1"> </span><span class="s2">주소를</span><span class="s1"> </span><span class="s2">복사하세요</span><span class="s1">", url);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>setTimeout(() =&gt; (btn.textContent = "</span><span class="s2">주소</span><span class="s1"> </span><span class="s2">복사</span><span class="s1">"), 1500);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>grid.appendChild(card);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+
+    <header>
+        <h1>🧩 나만의 웹 위젯 랩</h1>
+        <p>AI에게 말만 걸어서 만든 위젯 모음입니다.<br>
+           <b>주소 복사</b>를 눌러 노션 페이지에 <code>/embed</code>로 붙여넣어 보세요!</p>
+        <div class="links">
+            <a href="https://github.com/<아이디>/<저장소이름>" target="_blank">📦 GitHub 저장소</a>
+            <a href="https://github.com/<아이디>/<저장소이름>/blob/main/PROMPTS.md" target="_blank">🤖 AI 프롬프트 가이드</a>
+        </div>
+    </header>
+
+    <main class="grid" id="grid"></main>
+
+    <footer>Made with AI ✨ — 복사해서 자유롭게 수정해 쓰세요</footer>
+
+    <script>
+        const widgets = [
+            { file: "timerWidget.html",  icon: "⏳", title: "D-Day 카운트다운", desc: "목표일까지 남은 일·시·분·초가 실시간으로 흘러가요." },
+            { file: "interac_card.html", icon: "🚀", title: "기술 스택 3D 카드", desc: "마우스를 올리면 카드가 부드럽게 뒤집혀요." },
+            { file: "myeongun.html",     icon: "💬", title: "오늘의 명언",       desc: "새로고침할 때마다 명언이 랜덤으로 바뀌어요." },
+            { file: "progressbar.html",  icon: "⚡", title: "스킬 게이지",       desc: "로딩되면 게이지가 스르륵 차오르는 역량 바." },
+            { file: "guest.html",        icon: "📝", title: "방명록 / 한줄 메모", desc: "한줄 메모를 남기고 지울 수 있어요. (내 브라우저에 저장)" },
+            { file: "profile.html",      icon: "🔗", title: "소셜 링크",         desc: "GitHub·메일·LinkedIn·Instagram 버튼 모음." }
+        ];
+
+        const grid = document.getElementById("grid");
+
+        widgets.forEach(w => {
+            const url = new URL(w.file, location.href).href;
+            const card = document.createElement("article");
+            card.className = "card";
+            card.innerHTML = `
+                <div class="preview">
+                    <iframe src="${w.file}" title="${w.title}" loading="lazy"></iframe>
+                </div>
+                <div class="info">
+                    <h2>${w.icon} ${w.title}</h2>
+                    <p>${w.desc}</p>
+                    <div class="actions">
+                        <a class="open-btn" href="${w.file}" target="_blank">열어보기</a>
+                        <button class="copy-btn" type="button">주소 복사</button>
+                    </div>
+                </div>
+            `;
+
+            const btn = card.querySelector(".copy-btn");
+            btn.addEventListener("click", async () => {
+                try {
+                    await navigator.clipboard.writeText(url);
+                    btn.textContent = "✅ 복사됨!";
+                } catch (e) {
+                    prompt("아래 주소를 복사하세요", url);
+                }
+                setTimeout(() => (btn.textContent = "주소 복사"), 1500);
+            });
+
+            grid.appendChild(card);
+        });
+    </script>
 </body>
 </html>
