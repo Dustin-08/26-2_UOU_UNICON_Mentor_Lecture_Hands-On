@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포모도로 타이머</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 20px; display: flex; justify-content: center; font-family: 'Pretendard', -apple-system, 'Noto Sans KR', sans-serif; background: transparent; }
+        .card { width: 280px; background: rgba(255,255,255,0.85); border: 1px solid #fecdd3; border-radius: 24px; padding: 24px; text-align: center; box-shadow: 0 10px 28px rgba(244, 63, 94, 0.1); }
+        .modes { display: flex; gap: 6px; justify-content: center; margin-bottom: 18px; }
+        .modes button { border: 1px solid #fecdd3; background: #fff; color: #e11d48; padding: 6px 14px; border-radius: 999px; font-family: inherit; font-size: 0.8rem; font-weight: 700; cursor: pointer; }
+        .modes button.active { background: #f43f5e; color: #fff; border-color: #f43f5e; }
+        .ring { --p: 0; width: 180px; height: 180px; margin: 0 auto 18px; border-radius: 50%; background: conic-gradient(#f43f5e calc(var(--p) * 1%), #ffe4e6 0); display: flex; align-items: center; justify-content: center; }
+        .inner { width: 154px; height: 154px; border-radius: 50%; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        #time { font-size: 2.3rem; font-weight: 800; color: #881337; font-variant-numeric: tabular-nums; }
+        #label { font-size: 0.8rem; color: #be123c; margin-top: 2px; }
+        .ctrl { display: flex; gap: 8px; justify-content: center; }
+        .ctrl button { border: none; padding: 10px 20px; border-radius: 12px; font-family: inherit; font-size: 0.9rem; font-weight: 700; cursor: pointer; }
+        #toggle { background: #f43f5e; color: #fff; }
+        #toggle:hover { background: #e11d48; }
+        #reset { background: #fff1f2; color: #e11d48; }
+        #count { margin-top: 14px; font-size: 0.8rem; color: #9f1239; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="modes">
+            <button id="mFocus" class="active">🍅 집중 25분</button>
+            <button id="mBreak">☕ 휴식 5분</button>
+        </div>
+        <div class="ring" id="ring">
+            <div class="inner"><div id="time">25:00</div><div id="label">집중할 시간!</div></div>
+        </div>
+        <div class="ctrl">
+            <button id="toggle">시작</button>
+            <button id="reset">초기화</button>
+        </div>
+        <div id="count">오늘 완료한 포모도로: 0개</div>
+    </div>
+
+    <script>
+        const MODES = { focus: { sec: 25 * 60, label: "집중할 시간!" }, break: { sec: 5 * 60, label: "잠깐 쉬어가요" } };
+        let mode = "focus", remain = MODES.focus.sec, timer = null, done = 0;
+
+        const $ = id => document.getElementById(id);
+
+        function render() {
+            const m = String(Math.floor(remain / 60)).padStart(2, "0");
+            const s = String(remain % 60).padStart(2, "0");
+            $("time").textContent = m + ":" + s;
+            $("ring").style.setProperty("--p", (1 - remain / MODES[mode].sec) * 100);
+            $("label").textContent = MODES[mode].label;
+            $("count").textContent = "오늘 완료한 포모도로: " + done + "개";
+            document.title = m + ":" + s + " · 포모도로";
+        }
+
+        function stop() { clearInterval(timer); timer = null; $("toggle").textContent = "시작"; }
+
+        function setMode(next) {
+            stop(); mode = next; remain = MODES[mode].sec;
+            $("mFocus").classList.toggle("active", mode === "focus");
+            $("mBreak").classList.toggle("active", mode === "break");
+            render();
+        }
+
+        $("toggle").onclick = () => {
+            if (timer) { stop(); return; }
+            $("toggle").textContent = "일시정지";
+            timer = setInterval(() => {
+                remain--;
+                if (remain <= 0) {
+                    if (mode === "focus") done++;
+                    setMode(mode === "focus" ? "break" : "focus");
+                    return;
+                }
+                render();
+            }, 1000);
+        };
+        $("reset").onclick = () => setMode(mode);
+        $("mFocus").onclick = () => setMode("focus");
+        $("mBreak").onclick = () => setMode("break");
+        render();
+    </script>
+</body>
+</html>
