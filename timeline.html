@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성장 타임라인</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 24px 20px; font-family: 'Pretendard', -apple-system, 'Noto Sans KR', sans-serif; background: transparent; }
+        .timeline { position: relative; max-width: 520px; margin: 0 auto; padding-left: 28px; }
+        .timeline::before { content: ""; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(#c4b5fd, #f9a8d4); }
+        .item { position: relative; margin-bottom: 20px; opacity: 0; transform: translateY(16px); transition: all 0.6s ease; }
+        .item.show { opacity: 1; transform: none; }
+        .item::before { content: ""; position: absolute; left: -28px; top: 18px; width: 16px; height: 16px; border-radius: 50%; background: #fff; border: 3px solid #8b5cf6; }
+        .card { background: #fff; border: 1px solid #f1f5f9; border-radius: 14px; padding: 14px 16px; box-shadow: 0 6px 16px rgba(124, 58, 237, 0.07); }
+        .date { font-size: 0.75rem; font-weight: 700; color: #8b5cf6; }
+        .card h3 { margin: 4px 0; font-size: 0.98rem; color: #1e293b; }
+        .card p { margin: 0; font-size: 0.82rem; color: #64748b; line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <div class="timeline" id="timeline"></div>
+
+    <script>
+        // ✏️ 내 이력으로 바꾸세요 (위가 최신)
+        const events = [
+            { date: "2026.11", icon: "🎤", title: "멘토 강연 진행",        desc: "AI로 노션 위젯 만들기 실습 강연" },
+            { date: "2026.09", icon: "🧩", title: "웹 위젯 랩 오픈",        desc: "GitHub Pages로 위젯 갤러리 배포" },
+            { date: "2026.06", icon: "🤖", title: "AI 바이브 코딩 시작",    desc: "프롬프트로 첫 웹 프로젝트 완성" },
+            { date: "2026.03", icon: "🎓", title: "UNICON 프로그램 참여",   desc: "팀 프로젝트와 멘토링 경험" }
+        ];
+
+        const root = document.getElementById("timeline");
+        events.forEach(e => {
+            const el = document.createElement("div");
+            el.className = "item";
+            el.innerHTML = `<div class="card"><div class="date">${e.date}</div><h3>${e.icon} ${e.title}</h3><p>${e.desc}</p></div>`;
+            root.appendChild(el);
+        });
+
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add("show"); io.unobserve(en.target); } });
+        }, { threshold: 0.15 });
+        document.querySelectorAll(".item").forEach(el => io.observe(el));
+    </script>
+</body>
+</html>
