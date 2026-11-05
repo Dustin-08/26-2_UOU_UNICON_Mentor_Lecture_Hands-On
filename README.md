@@ -27,6 +27,8 @@
 | ⚡ 스킬 게이지 | [`progressbar.html`](./progressbar.html) | 로딩 시 게이지가 스르륵 차오르는 애니메이션 | [열어보기]([열어보기](https://Dustin-08.github.io/26-2_UOU_UNICON_Mentor_Lecture_Hands-On/progressbar.html)) |
 | 📝 방명록 / 한줄 메모 | [`guest.html`](./guest.html) | 한줄 메모를 등록·삭제 (브라우저에 저장) | [열어보기](https://Dustin-08.github.io/26-2_UOU_UNICON_Mentor_Lecture_Hands-On/guest.html) |
 | 🔗 소셜 링크 | [`profile.html`](./profile.html) | GitHub·메일·LinkedIn·Instagram 버튼 모음 | [열어보기](https://Dustin-08.github.io/26-2_UOU_UNICON_Mentor_Lecture_Hands-On/profile.html) |
+| 🛤 성장 타임라인 | [`timerline.html`](./timerline.html) | 이력과 마일스톤을 시간순으로 아카이빙 | [열어보기](https://Dustin-08.github.io/26-2_UOU_UNICON_Mentor_Lecture_Hands-On/timeline.html) |
+| 🍅 포모도로 타이머 | [`pomodoro.html`](./pomodoro.html) | 25분 집중 / 5분 휴식 타이머 | [열어보기](https://Dustin-08.github.io/26-2_UOU_UNICON_Mentor_Lecture_Hands-On/timeline.html) |
 
 ---
 
