@@ -6,27 +6,38 @@
     <title>나만의 웹 위젯 랩 🧩</title>
     <style>
         * { box-sizing: border-box; }
+        
         body {
             margin: 0;
             font-family: 'Pretendard', -apple-system, 'Noto Sans KR', sans-serif;
-            background: linear-gradient(135deg, #faf5ff 0%, #fdf2f8 100%);
-            color: #1e293b;
+            /* 스크롤 부드러움을 위해 fixed 제거 및 최적화된 오버레이 적용 */
+            background: linear-gradient(rgba(15, 23, 42, 0.3), rgba(15, 23, 42, 0.3)), 
+                        url('bg_26101.png') no-repeat center center;
+            background-size: cover;
+            color: #f8fafc;
             min-height: 100vh;
         }
+
         header {
             text-align: center;
             padding: 56px 20px 24px;
         }
+
         header h1 {
             margin: 0 0 10px;
-            font-size: 2rem;
-            color: #6d28d9;
+            font-size: 2.2rem;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
+
         header p {
             margin: 0;
-            color: #64748b;
+            color: #e2e8f0;
             line-height: 1.6;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
         }
+
+        /* 상단 링크 버튼 리퀴드 글래스 스타일 */
         .links {
             margin-top: 18px;
             display: flex;
@@ -38,17 +49,21 @@
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: 600;
-            padding: 8px 16px;
+            padding: 9px 18px;
             border-radius: 999px;
-            background: #ffffff;
-            color: #7c3aed;
-            border: 1px solid #e9d5ff;
-            transition: all 0.2s;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.25s ease;
         }
         .links a:hover {
-            background: #7c3aed;
-            color: #fff;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
         }
+
         .grid {
             max-width: 1000px;
             margin: 0 auto;
@@ -57,30 +72,53 @@
             grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
             gap: 22px;
         }
+
+        /* 🌟 최적화 및 리퀴드 글래스 스타일 적용된 카드 */
         .card {
-            background: #ffffff;
-            border-radius: 20px;
-            border: 1px solid #f1f5f9;
-            box-shadow: 0 8px 24px rgba(124, 58, 237, 0.07);
+            background: rgba(255, 255, 255, 0.15); 
+            /* 버벅임 방지를 위해 블러 수치를 16px로 최적화 */
+            backdrop-filter: blur(16px) saturate(150%);
+            -webkit-backdrop-filter: blur(16px) saturate(150%);
+            
+            border-radius: 26px;
+            border: 1.5px solid rgba(255, 255, 255, 0.65);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.2),
+                inset 0 1.5px 3px rgba(255, 255, 255, 0.9);
+                
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            transition: transform 0.25s, box-shadow 0.25s;
+            
+            /* 스크롤 하드웨어 가속 힌트 부여 (버벅임 방지) */
+            will-change: transform;
+            transform: translateZ(0);
+            
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                        box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                        background 0.3s;
         }
+
         .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 14px 32px rgba(124, 58, 237, 0.14);
+            transform: translateY(-6px);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.3),
+                inset 0 2px 4px rgba(255, 255, 255, 1);
         }
+
         .preview {
             height: 220px;
-            background: #f8fafc;
-            border-bottom: 1px solid #f1f5f9;
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
+
         .preview iframe {
             width: 100%;
             height: 100%;
             border: 0;
         }
+
         .info {
             padding: 16px 18px 18px;
             display: flex;
@@ -88,17 +126,23 @@
             gap: 6px;
             flex: 1;
         }
+
         .info h2 {
             margin: 0;
             font-size: 1.05rem;
+            color: #ffffff;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         }
+
         .info p {
             margin: 0;
             font-size: 0.85rem;
-            color: #64748b;
+            color: #e2e8f0;
             line-height: 1.5;
             flex: 1;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
         }
+
         .actions {
             display: flex;
             gap: 8px;
@@ -111,28 +155,38 @@
             font-family: inherit;
             font-size: 0.8rem;
             font-weight: 700;
-            padding: 9px 0;
-            border-radius: 10px;
+            padding: 10px 0;
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.2s;
         }
+
         .open-btn {
-            background: #7c3aed;
+            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
             color: #fff;
-            border: 1px solid #7c3aed;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
         }
-        .open-btn:hover { background: #6d28d9; }
+        .open-btn:hover { 
+            background: linear-gradient(135deg, #6d28d9 0%, #5b21b6 100%); 
+        }
+
         .copy-btn {
-            background: #fff;
-            color: #7c3aed;
-            border: 1px solid #e9d5ff;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
-        .copy-btn:hover { background: #faf5ff; }
+        .copy-btn:hover { 
+            background: rgba(255, 255, 255, 0.4); 
+        }
+
         footer {
             text-align: center;
-            padding: 0 20px 40px;
+            padding: 20px 20px 50px;
             font-size: 0.8rem;
-            color: #94a3b8;
+            color: #cbd5e1;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -147,7 +201,7 @@
             <a href="https://github.com/Dustin-08/26-2_UOU_UNICON_Mentor_Lecture_Hands-On/blob/main/PROMPTS.md" target="_blank">🤖 AI 프롬프트 가이드</a>
         </div>
     </header>
-
+    
     <main class="grid" id="grid"></main>
 
     <footer>Made with AI ✨ — 복사해서 자유롭게 수정해 쓰세요</footer>
